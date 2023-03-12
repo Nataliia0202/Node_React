@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Node_React/static/css/main.c9969133.css",
+    "main.js": "/Node_React/static/js/main.34ecfa91.js",
+    "static/js/413.22ebd3be.chunk.js": "/Node_React/static/js/413.22ebd3be.chunk.js",
+    "static/media/404-Error-Websites.jpg": "/Node_React/static/media/404-Error-Websites.f80ad116023cc3547957.jpg",
+    "static/media/skachat_oboi_1366x768.jpg": "/Node_React/static/media/skachat_oboi_1366x768.b377f7534c8efe873d5f.jpg",
+    "index.html": "/Node_React/index.html",
+    "main.c9969133.css.map": "/Node_React/static/css/main.c9969133.css.map",
+    "main.34ecfa91.js.map": "/Node_React/static/js/main.34ecfa91.js.map",
+    "413.22ebd3be.chunk.js.map": "/Node_React/static/js/413.22ebd3be.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9969133.css",
+    "static/js/main.34ecfa91.js"
+  ]
+}
