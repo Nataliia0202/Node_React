@@ -21,10 +21,10 @@ export const ContactList = () => {
 
   return (
     <ContactListStyle>
-      {filteredContacts.map(({ id, name, number }) => {
+      {filteredContacts.map(({ _id, name, phone }) => {
         return (
-          <ContactListItem key={id}>
-            <ContactItemEntrails id={id} name={name} number={number} />
+          <ContactListItem key={_id}>
+            <ContactItemEntrails id={_id} name={name} number={phone} />
           </ContactListItem>
         );
       })}

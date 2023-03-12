@@ -7,7 +7,7 @@ import {
   toastError,
 } from 'components/services/toasts';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -20,10 +20,10 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
+      const res = await axios.post('/users/register', credentials);
       toastSuccessRegister();
-      setAuthHeader(res.data.token);
-      return res.data;
+      // setAuthHeader(res.data.token);
+      return res.data.data;
     } catch (error) {
       toastError();
       return thunkAPI.rejectWithValue(error);
@@ -37,8 +37,8 @@ export const logInUser = createAsyncThunk(
     try {
       const res = await axios.post('/users/login', credentials);
       toastSuccessLogIn();
-      setAuthHeader(res.data.token);
-      return res.data;
+      setAuthHeader(res.data.data.token);
+      return res.data.data;
     } catch (error) {
       toastError();
       return thunkAPI.rejectWithValue(error);
@@ -70,8 +70,8 @@ export const refreshUser = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
-      return res.data;
+      const res = await axios.post('/users/current');
+      return res.data.data;
     } catch (error) {
       toastError();
       return thunkAPI.rejectWithValue(error.message);

@@ -6,14 +6,14 @@ import {
   toastError,
 } from 'components/services/toasts';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+// axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunkApi) => {
     try {
       const contacts = await axios.get('/contacts');
-      return contacts.data;
+      return contacts.data.data;
     } catch (error) {
       toastError();
       return thunkApi.rejectWithValue(error);
@@ -27,7 +27,7 @@ export const addNewContact = createAsyncThunk(
     try {
       const contacts = await axios.post('/contacts', credentials);
       toastSuccessAdd();
-      return contacts.data;
+      return contacts.data.data;
     } catch (error) {
       toastError();
       return thunkApi.rejectWithValue(error);
@@ -41,7 +41,7 @@ export const deleteContact = createAsyncThunk(
     try {
       const contacts = await axios.delete(`/contacts/${id}`);
       toastSuccessDelete();
-      return contacts.data;
+      return contacts.data.data;
     } catch (error) {
       toastError();
       return thunkApi.rejectWithValue(error);

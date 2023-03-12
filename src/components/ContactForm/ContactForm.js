@@ -17,7 +17,7 @@ import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
@@ -33,14 +33,14 @@ export const ContactForm = () => {
     }
     const newContact = {
       name,
-      number,
+      phone,
     };
     dispatch(addNewContact(newContact));
     reset();
   };
   const reset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -66,8 +66,8 @@ export const ContactForm = () => {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={number}
-          onChange={event => setNumber(event.target.value)}
+          value={phone}
+          onChange={event => setPhone(event.target.value)}
         />
         <LocalPhoneIconStyle />
       </ClassicLabelForm>
