@@ -7,7 +7,7 @@ import {
   toastError,
 } from 'components/services/toasts';
 
-axios.defaults.baseURL = 'http://localhost:3001/api/';
+axios.defaults.baseURL = 'https://back-gbi8.onrender.com/api/';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
